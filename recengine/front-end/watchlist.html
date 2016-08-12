@@ -1,0 +1,108 @@
+<html>
+
+    <head>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/custom_s.css" rel="stylesheet">
+       
+    </head>
+
+    <body style="background-color:edf8f7;">
+        <div class="container-fluid">
+            <div class="bs-component">
+                <div class="navbar navbar navbar-fixed-top custom-navbar shadow-z-2" style="background-color:#673ab7">
+                    <a href="C:\Users\shashank\Desktop\Aurora\recommandation.html" class="btn btn-raised btn pull-right" style="display:inline;margin-right:0.5em;background-color:#7e57c2;color:white;">R</a> 
+                    <form role="search" style="display:inline;">
+                        <div class="form-group pull-right" style="display:inline;">
+                            <input type="text" id="" class="form-control" placeholder="Search..." style="text-align:center;margin-top:1em;margin-right:1em;transform:translate(-5%,00%)"/>
+                        </div>
+                    </form>
+                    <div class="navbar-header">         
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                         
+                    </div>
+                    
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="C:\Users\shashank\Desktop\Aurora\trending.html">Trending</a></li>
+                            <li><a href="C:\Users\shashank\Desktop\Aurora\recommandation.html">Recommandation</a></li>
+                            <li><a href="C:\Users\shashank\Desktop\Aurora\watchlist.html">Watchlist</a></li>
+                            <li class="divider"></li>
+                            <li><a href="">Logout</a></li>
+                        </ul> 
+                          
+                     </div> 
+                </div>
+            </div>
+             <div class="row customtopbackgrounds" style="background-color:#7e57c2;">
+                <div class="col-lg-12"><center><h1 class="customtopfonts" style="color:white;">WATCHLIST</h1></center></div>
+            </div>
+           <div id="card-aggregate-container"> 
+            <!-- card -->
+                <!--<div class="row customcardholders">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <div class="panel panel-default shadow-z-2">
+                          <a href="" class="customlink">
+                            <div class="panel-body">
+                                <center><p id="stockname1"></p></center>
+                                <center><p id="price1"></p></center>
+                            </div>
+                          </a>
+                            <div class="panel-footer">.<span class="mdi-content-add pull-right"></span></div>
+                        </div>
+                     </div>
+                     <div class="col-sm-1"></div>
+                </div>-->
+            </div>
+            <button type="button" class="btn btn-fab btn-primary btn-raised floatbuttons" style="background-color:#7e57c2" onclick="window.location.href='trending.html'">T</button>
+        </div>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/ripples.min.js"></script>
+        <script src="js/material.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+               
+               //dynamic code
+       
+                    // var xmlhttp = new XMLHttpRequest();
+                    // xmlhttp.open("GET", "http://127.0.0.1:5000/api/aurora/trending",true);
+                    // xmlhttp.send(null);
+                    // var rText = xmlhttp.responseText;
+                    // console.debug(rText+ "nn");
+                    // var namePrice = rText.split(",");
+                    // var name="", price=0;
+                    $.get("http://127.0.0.1:5000/api/aurora/watchlist",function(rText){                  
+                      var namePrice = rText.split(",");
+                      var i =0;
+                      for(i=0; i<namePrice.length-2; i+=2){
+                      $("#card-aggregate-container").append("<div class='row customcardholders'><div class='col-sm-1'></div><div class='col-sm-10'><div class='panel panel-default shadow-z-2'><div class='panel-body'><center><p id='stockname" + i + "'" +">" + namePrice[i] + "</p></center><center><p id='price" + (i+1) + "'" +">" + namePrice[i + 1] + "</p></center><div class='panel-footer'>.</div></div></div><div class='col-sm-1'></div></div>");
+                    }
+                    });
+                    
+                     $(".panel-body").click(function(){
+                        $.get("http://127.0.0.1:5000/api/aurora/sendstockname", {stockname: $(this > p).val()});
+                    });
+                    
+                    
+                });
+        </script>
+
+
+
+
+    </body>
+
+</html>

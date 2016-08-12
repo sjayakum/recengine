@@ -1,0 +1,64 @@
+<html>
+
+    <head>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/custom_r.css" rel="stylesheet">
+
+	</head>
+
+    <body>
+    <div class="container-fluid">
+    	<form>
+
+	    		<div class="form-group">
+			    	<input type="text" placeholder="Username" id="usernameField" class="hidden form-control text-input-username"></input>
+			    </div>
+
+			    	<button type="button" id="loginButton" class="btn btn-primary login-button">Login</button>
+			    	<br>
+			    	<br>
+
+			    <div class="form-group">
+			    	<input type="password" placeholder="Password" class="hidden form-control text-input-password" id="passwordField"></input>
+			    </div>
+
+			    	<button type="button" id="submitButton" class="btn btn-primary submit-button hidden">Submit</button>
+
+				
+			
+    	</form>
+    </div>
+
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ripples.min.js"></script>
+        <script src="js/material.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.material.init();
+
+                $("#loginButton").click(function(){
+        			$(this).fadeOut();
+        			$("#usernameField").removeClass("hidden");
+        			$("#passwordField").removeClass("hidden");
+        			$("#submitButton").removeClass("hidden");
+        		});
+
+        		$("#submitButton").click(function(){
+
+        			$.get("http://127.0.0.1:5000/api/aurora/logins");
+        			
+        		});
+
+            });
+        </script>
+       
+
+    </body>
+
+</html>

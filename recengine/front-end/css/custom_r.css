@@ -1,0 +1,31 @@
+.text-input-username{
+	position:fixed;
+	top:48%;
+	left:50%;
+	width:7em;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+.text-input-password{
+	position:fixed;
+	top:55%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	width:7em;
+	text-align:center;
+}
+
+.submit-button{
+	position: fixed;
+  	top: 80%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+.login-button{
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}

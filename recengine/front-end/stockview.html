@@ -1,0 +1,144 @@
+<html>
+
+    <head>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/custom_s.css" rel="stylesheet">
+       
+    </head>
+
+    <body style="background-color:#edf8f7;">
+        <div class="container-fluid">
+            <div class="bs-component">
+                <div class="navbar navbar-default navbar-fixed-top custom-navbar shadow-z-2" style="background-color:#000;">
+                    <a href="recommandation.html" class="btn btn-raised btn-default pull-right" style="display:inline;margin-right:0.5em;color:white;background-color:#212121;">R</a> 
+                    <form role="search" style="display:inline;">
+                        <div class="form-group pull-right" style="display:inline;">
+                            <input type="text" id="" class="form-control" placeholder="Search..." style="text-align:center;margin-top:1em;margin-right:1em;transform:translate(-5%,00%)"/>
+                        </div>
+                    </form>
+                    <div class="navbar-header">         
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                         
+                    </div>
+                    
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="trending.html">Trending</a></li>
+                            <li><a href="recommandation.html">Recommandation</a></li>
+                            <li><a href="watchlist.html">Watchlist</a></li>
+                            <li class="divider"></li>
+                            <li><a href="">Logout</a></li>
+                        </ul> 
+                          
+                     </div> 
+                </div>
+            </div>
+             <!--<div class="row customtopbackgrounds" style="background-color:#303030;">
+                <div class="col-lg-12"><center><h1 class="customtopfonts" style="color:white;">STOCK VIEW</h1></center></div>
+            </div>-->
+           <div id="card-aggregate-container"> 
+            <!-- card -->
+                <!--<div class="row customcardholders">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <div class="panel panel-default shadow-z-2">
+                          <a href="" class="customlink">
+                            <div class="panel-body">
+                                <center><p id="stockname1"></p></center>
+                                <center><p id="price1"></p></center>
+                            </div>
+                          </a>
+                            <div class="panel-footer">.<span class="mdi-content-add pull-right"></span></div>
+                        </div>
+                     </div>
+                     <div class="col-sm-1"></div>
+                </div>-->
+            </div>
+            
+                <div class="row">
+                    <div class="col-sm-12" style="background-color:#424242;height:18em;margin-top:4.52em;"><img src="http://127.0.0.1:5000/api/aurora/graph" width="100%" height="100%" id="stock-graph"/></div>
+                </div>
+                <div class="panel panel-default shadow-z-2" style="margin-top:1em;" id="fadeinanimation">
+                    <div class="panel-body">
+                        <div class="col-sm-12" style="font-size:1.5em;">
+                            <p id="stock-name" style="display:inline;"></p>
+                            <p id="stock-price" style="display:inline;" class="pull-right;"></p>
+<p id="stockpr" style="display:inline;" class="pull-right;"></p>
+                            <!--<span class="mdi-content-add pull-right"></span>-->
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <center><p id="peoplelike"></p></center>
+                    </div>
+                </div>
+            <button type="button" class="btn btn-fab btn-primary btn-raised floatbuttons" onclick="window.location.href='watchlist.html'">W</button>
+        </div>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/ripples.min.js"></script>
+        <script src="js/material.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+               
+               //dynamic code
+       
+                    // var xmlhttp = new XMLHttpRequest();
+                    // xmlhttp.open("GET", "http://127.0.0.1:5000/api/aurora/trending",true);
+                    // xmlhttp.send(null);
+                    // var rText = xmlhttp.responseText;
+                    // console.debug(rText+ "nn");
+                    // var namePrice = rText.split(",");
+                    // var name="", price=0;
+                    // $.get("http://127.0.0.1:5000/api/aurora/trending",function(rText){                  
+                    //   var namePrice = rText.split(",");
+                    //   var i =0;
+                    //   for(i=0; i<namePrice.length-2; i+=2){
+                    //   $("#card-aggregate-container").append("<div class='row customcardholders'><div class='col-sm-1'></div><div class='col-sm-10'><div class='panel panel-default shadow-z-2'><div class='panel-body'><center><p id='stockname" + i + "'" +">" + namePrice[i] + "</p></center><center><p id='price" + (i+1) + "'" +">" + namePrice[i + 1] + "</p></center><div class='panel-footer'>.<span class='mdi-content-add pull-right' id='plusSign' stock='"+namePrice[i]+"'"+"></span></div></div></div><div class='col-sm-1'></div></div>");
+                    // }
+                    // });
+                    
+                    // $.("#plusSign").click(function(){
+                    //     $.get("http://127.0.0.1:5000/api/aurora/addwatch", {stockname: $(this).attr("stock")});
+                    //     $(this).fadeOut("slow");
+                    // });
+                    
+                    $.get("http://127.0.0.1:5000/api/aurora/stockdetails", function(values){
+                        var arrVals = values.split(",");
+			var temp = arrVals[0];
+var temp1=arrVals[1];
+var temp2=arrVals[2];
+var temp3=(temp2-temp1)/(temp1);
+
+
+if(temp3>0)
+$("#stock-price").append("<p>"+temp3.toFixed(3)+" % UP"+"</p>");
+else
+$("#stock-price").append("<p>"+temp3.toFixed(3)+" % DOWN"+"</p>");
+$("#stock-name").append("<p>"+temp+"</p>");
+$("#stockpr").append("<p>"+temp2.toFixed(3)+"</p>");
+var temp4=arrVals[3];
+$("#peoplelike").append("<p>"+"SENTIMENT: "+temp4+"</p>");
+                                           });
+                });
+
+
+        </script>
+
+
+
+
+    </body>
+
+</html>

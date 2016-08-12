@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function callme (id) {
+
+                     var xmlhttp = new XMLHttpRequest();
+                     xmlhttp.open("GET", "http://127.0.0.1:5002/api/suraj/getHotelDetails?hotelid="+id,false);
+                     xmlhttp.send(null);
+                     var rText = xmlhttp.responseText;
+                     //alert(rText + 'hi')
+                     console.debug(rText );
+                     if (rText != null){
+                     document.getElementById("para2").innerHTML = rText;	
+                     }
+                     
+
+		// body...
+	}
+</script>
+<p id="para1" onclick="callme('7969414290988543496')">
+hi
+</p>
+<p id = "para2">
+	
+</p>
+</body>
+</html>
