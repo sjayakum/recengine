@@ -1,5 +1,9 @@
 # recengine
 
+Societe Generale Global Solution Centre (SG GSC) hosted the second edition of its annual hackathon, Brainwaves 2015, on September 12 and 13. The event aimed at bringing together college students, working professionals and SG GSC employees together for a 30-hour build session which saw 165 participants across 45 teams showcase their coding abilities to create applications.
+
+**This application was awarded first place**
+
 ## Index
 - [Introduction](#introduction)
 - [Architecture](#architecture)
