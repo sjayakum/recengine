@@ -7,7 +7,7 @@ Societe Generale Global Solution Centre (SG GSC) hosted the second edition of it
 ## Index
 - [Introduction](#introduction)
 - [Architecture](#architecture)
-- [Backed](#backend)
+- [Backend](#backend)
 - [Pitch](#pitch)
 - [Sample Screenshots](#sample-screenshots)
 - [References](#references)
@@ -35,8 +35,8 @@ A sample collaborative filtering dataset by [Jester](https://github.com/sjayakum
 ![alt tag](https://github.com/sjayakum/recengine/blob/master/recengine/samples/pic2.png)
 
 Here,
-- **Green** indicates the "Predicted" metric of a all the stocks for a given user.
-- **Blue** indiciates the "Actual" pre-calculated metric of all stock for a given user.
+- **Green** indicates the "Predicted" metric of all the stocks for a given user.
+- **Blue** indiciates the "Actual" pre-calculated metric of all the stocks for a given user.
 - **x-axis** List of all stocks index from 0 to 40 [which are in our consideration]
 - **y-axis** Represents the likeliness that the given person would go for that stock. More positive the value, more likely he is to buy that stock.
 
